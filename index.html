@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto MoneTag Ads</title>
+
+    <!-- MoneTag Scripts -->
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8601885' data-sdk='show_8601885'></script>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8601880' data-sdk='show_8601880'></script>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8601879' data-sdk='show_8601879'></script>
+
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .progress-circle {
+            margin: 20px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            background: conic-gradient(#007bff 0% 0%, #2b2b2b 0% 100%);
+        }
+
+        .stats {
+            margin: 15px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .auto-ads {
+            grid-column: span 2;
+            background-color: #28a745;
+        }
+
+        .auto-ads:hover {
+            background-color: #1e7b34;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Auto MoneTag Ads</h1>
+        <div class="progress-circle" id="progressCircle">0%</div>
+        <div class="stats">
+            <p>Watched Ads: <span id="watchedAds">0</span></p>
+            <p>Earned Points: <span id="earnedPoints">0</span></p>
+        </div>
+        <div class="buttons">
+            <!-- Buttons -->
+            <button onclick="showAd()">Button 1</button>
+            <button onclick="showAd()">Button 2</button>
+            <button onclick="showAd()">Button 3</button>
+            <button onclick="showAd()">Button 4</button>
+            <button onclick="showAd()">Button 5</button>
+            <button onclick="showAd()">Button 6</button>
+            <button onclick="showAd()">Button 7</button>
+            <button onclick="showAd()">Button 8</button>
+            <button onclick="showAd()">Button 9</button>
+            <button onclick="showAd8601880()">Button 10</button> <!-- Ad Code 8601880 -->
+            <button onclick="showAd8601880()">Button 11</button> <!-- Ad Code 8601880 -->
+            <button onclick="showAd8601879()">Button 12</button> <!-- Ad Code 8601879 -->
+            <button onclick="showAd8601879()">Button 13</button> <!-- Ad Code 8601879 -->
+            <button onclick="showAd()">Button 14</button>
+            <button onclick="showAd()">Button 15</button>
+            <button onclick="showAd()">Button 16</button>
+            <button onclick="showAd()">Button 17</button>
+            <button onclick="showAd()">Button 18</button>
+            <button onclick="showAd()">Button 19</button>
+            <button onclick="showAd()">Button 20</button>
+
+            <!-- Auto Ads Button -->
+            <button class="auto-ads" onclick="autoShowAds()">Auto Show Ads</button>
+        </div>
+    </div>
+
+    <script>
+        let watchedAds = 0;
+        let earnedPoints = 0;
+
+        // Function to update the progress circle
+        function updateProgress(percentage) {
+            const circle = document.getElementById('progressCircle');
+            circle.style.background = `conic-gradient(#007bff ${percentage}%, #2b2b2b ${percentage}% 100%)`;
+            circle.textContent = `${percentage}%`;
+        }
+
+        // Function to update stats
+        function updateStats() {
+            document.getElementById('watchedAds').textContent = watchedAds;
+            document.getElementById('earnedPoints').textContent = earnedPoints;
+        }
+
+        // Default Ad Function
+        function showAd() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                updateProgress(progress);
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    show_8601885()
+                        .then(() => {
+                            watchedAds++;
+                            earnedPoints += 10;
+                            updateStats();
+                        })
+                        .catch(error => console.error('Ad Error:', error));
+                }
+            }, 100);
+        }
+
+        // Ad Function for 8601880
+        function showAd8601880() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                updateProgress(progress);
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    show_8601880()
+                        .then(() => {
+                            watchedAds++;
+                            earnedPoints += 10;
+                            updateStats();
+                        })
+                        .catch(error => console.error('Ad Error:', error));
+                }
+            }, 100);
+        }
+
+        // Ad Function for 8601879
+        function showAd8601879() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                updateProgress(progress);
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    show_8601879()
+                        .then(() => {
+                            watchedAds++;
+                            earnedPoints += 10;
+                            updateStats();
+                        })
+                        .catch(error => console.error('Ad Error:', error));
+                }
+            }, 100);
+        }
+
+        // Auto Ad Function
+        function autoShowAds() {
+            const interval = setInterval(() => {
+                show_8601885()
+                    .then(() => {
+                        watchedAds++;
+                        earnedPoints += 10;
+                        updateStats();
+                    })
+                    .catch(error => console.error('Auto Ad Error:', error));
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
